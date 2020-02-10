@@ -18,7 +18,7 @@ namespace kt453316_MIS4200.Controllers
         // GET: Registrations
         public ActionResult Index()
         {
-            var registration = db.Registration.Include(r => r.Course).Include(r => r.Student);
+            var registration = db.Registrations.Include(r => r.Course).Include(r => r.Student);
             return View(registration.ToList());
         }
 
@@ -29,7 +29,7 @@ namespace kt453316_MIS4200.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Registration registration = db.Registration.Find(id);
+            Registration registration = db.Registrations.Find(id);
             if (registration == null)
             {
                 return HttpNotFound();
@@ -40,8 +40,8 @@ namespace kt453316_MIS4200.Controllers
         // GET: Registrations/Create
         public ActionResult Create()
         {
-            ViewBag.courseID = new SelectList(db.Course, "courseID", "instructor");
-            ViewBag.studentID = new SelectList(db.Student, "studentID", "firstName");
+            ViewBag.courseID = new SelectList(db.Courses, "courseID", "instructor");
+            ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName");
             return View();
         }
 
@@ -54,13 +54,13 @@ namespace kt453316_MIS4200.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Registration.Add(registration);
+                db.Registrations.Add(registration);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.courseID = new SelectList(db.Course, "courseID", "instructor", registration.courseID);
-            ViewBag.studentID = new SelectList(db.Student, "studentID", "firstName", registration.studentID);
+            ViewBag.courseID = new SelectList(db.Courses, "courseID", "instructor", registration.courseID);
+            ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName", registration.studentID);
             return View(registration);
         }
 
@@ -71,13 +71,13 @@ namespace kt453316_MIS4200.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Registration registration = db.Registration.Find(id);
+            Registration registration = db.Registrations.Find(id);
             if (registration == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.courseID = new SelectList(db.Course, "courseID", "instructor", registration.courseID);
-            ViewBag.studentID = new SelectList(db.Student, "studentID", "firstName", registration.studentID);
+            ViewBag.courseID = new SelectList(db.Courses, "courseID", "instructor", registration.courseID);
+            ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName", registration.studentID);
             return View(registration);
         }
 
@@ -94,8 +94,8 @@ namespace kt453316_MIS4200.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.courseID = new SelectList(db.Course, "courseID", "instructor", registration.courseID);
-            ViewBag.studentID = new SelectList(db.Student, "studentID", "firstName", registration.studentID);
+            ViewBag.courseID = new SelectList(db.Courses, "courseID", "instructor", registration.courseID);
+            ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName", registration.studentID);
             return View(registration);
         }
 
@@ -106,7 +106,7 @@ namespace kt453316_MIS4200.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Registration registration = db.Registration.Find(id);
+            Registration registration = db.Registrations.Find(id);
             if (registration == null)
             {
                 return HttpNotFound();
@@ -119,8 +119,8 @@ namespace kt453316_MIS4200.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Registration registration = db.Registration.Find(id);
-            db.Registration.Remove(registration);
+            Registration registration = db.Registrations.Find(id);
+            db.Registrations.Remove(registration);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

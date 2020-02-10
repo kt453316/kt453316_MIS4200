@@ -18,7 +18,7 @@ namespace kt453316_MIS4200.Controllers
         // GET: Courses
         public ActionResult Index()
         {
-            return View(db.Course.ToList());
+            return View(db.Courses.ToList());
         }
 
         // GET: Courses/Details/5
@@ -28,7 +28,7 @@ namespace kt453316_MIS4200.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Course course = db.Course.Find(id);
+            Course course = db.Courses.Find(id);
             if (course == null)
             {
                 return HttpNotFound();
@@ -51,7 +51,7 @@ namespace kt453316_MIS4200.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Course.Add(course);
+                db.Courses.Add(course);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -66,7 +66,7 @@ namespace kt453316_MIS4200.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Course course = db.Course.Find(id);
+            Course course = db.Courses.Find(id);
             if (course == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace kt453316_MIS4200.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Course course = db.Course.Find(id);
+            Course course = db.Courses.Find(id);
             if (course == null)
             {
                 return HttpNotFound();
@@ -110,8 +110,8 @@ namespace kt453316_MIS4200.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Course course = db.Course.Find(id);
-            db.Course.Remove(course);
+            Course course = db.Courses.Find(id);
+            db.Courses.Remove(course);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
