@@ -10,6 +10,6 @@ namespace kt453316_MIS4200.Models
     {
         [Key]
         public int courseID { get; set; }
-        public DateTime classTime { get; set; }        public int instructor { get; set; }        public int description { get; set; }        public ICollection<Registration> Registration { get; set; }
+        public string classTime { get; set; }        public string instructor { get; set; }        public string description { get; set; }        public ICollection<Registration> Registration { get; set; }
     }
 }

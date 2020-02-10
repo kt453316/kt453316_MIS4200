@@ -13,6 +13,9 @@ namespace kt453316_MIS4200.DAL
 
         public MIS4200Context() : base("name=DefaultConnection")
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MIS4200Context,kt453316_MIS4200.Migrations.MISContext.Configuration > ("DefaultConnection"));
+
+             
 
         }
 
@@ -23,6 +26,13 @@ namespace kt453316_MIS4200.DAL
 
         public DbSet<Course> Courses { get; set; }
 
-       
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+
+        {
+
+            base.OnModelCreating(modelBuilder);
+
+        }
+
     }
 }

@@ -18,7 +18,7 @@ namespace kt453316_MIS4200.Controllers
         // GET: Registrations
         public ActionResult Index()
         {
-            var registration = db.Registrations.Include(r => r.Course).Include(r => r.Student);
+            var registration = db.Registrations.Include(r => r.Student);
             return View(registration.ToList());
         }
 
