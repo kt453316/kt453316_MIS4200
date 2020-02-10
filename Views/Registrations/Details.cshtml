@@ -1,0 +1,42 @@
+﻿@model kt453316_MIS4200.Models.Registration
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Registration</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Course.instructor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course.instructor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.registrationTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.registrationTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.confirmationID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
