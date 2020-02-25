@@ -2,35 +2,55 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>Kelly Thaxton</h1>
-    <p class="lead">Hi there! Welcome to my website! Feel free to have a look around and familiarize yourself with some information about me!</p>
-    <p><a href="https://www.linkedin.com/in/kelly-thaxton/" class="btn btn-primary btn-lg">My LinkedIn &raquo;</a></p>
-</div>
+    <div class="jumbotron">
+        <h1>Kelly Thaxton</h1>
+        <p class="lead">Hi there! Welcome to my website! Feel free to have a look around and familiarize yourself with some information about me!</p>
+        <p><a href="https://www.linkedin.com/in/kelly-thaxton/" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-briefcase"> </span> My LinkedIn &raquo;</a></p>
+        <p><a href="https://business.ohio.edu/future-students/student-ambassadors/kelly-thaxton/" class="btn btn-success btn-lg"> <span class="glyphicon glyphicon-certificate"> </span> Student Ambassador Page &raquo;</a></p>
+    </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Past</h2>
-        <p>
-            I am from Westlake, Ohio which is a little suburb outside of Cleveland.
-        
-        </p>
-        
-    </div>
-    <div class="col-md-4">
-        <h2>Present</h2>
-        <p>
-            I am a junior in the College of Business here at Ohio Unviersity. I am studying Management Information Systems, Analytics, and Marketing. I plan on graduating with my bachelors of business adminstration in May of 2021.<br />
-          <b /> @Html.ActionLink("Course", "Index", "Courses")<b /> <br />
-            @Html.ActionLink("Registration", "Index", "Registrations")<b /> <br />
-            @Html.ActionLink("Student", "Index", "Students")<b /> <br />
+    <div class="row">
 
-        </p>
-        
-    </div>
-    <div class="col-md-4">
-        <h2>Future</h2>
-        <p>I still have one more year of schooling to go at Ohio University before I graduate. This upcoming summer, I will be interning as a Marketing Intern for Whirlpool Co.!</p>
-        
-    </div>
-</div>
+        <div class="well">
+            <h2>About Me and Classwork:</h2>
+            <p>
+            
+
+            </p>
+
+            <div class="well">
+                <h2>Class Database Work:</h2>
+                <p>
+                    <b /> @Html.ActionLink("Course", "Index", "Courses")<b /> <br />
+                          @Html.ActionLink("Registration", "Index", "Registrations")<b /> <br />
+                          @Html.ActionLink("Student", "Index", "Students")<b /> <br />
+
+                </p>
+
+            </div>
+
+            <div class="well">
+                <h2>Past</h2>
+                <p>
+                    I am from Westlake, Ohio which is a suburb outside of Cleveland.
+
+                </p>
+
+            </div>
+            <div class="well">
+                <h2>Present</h2>
+                <p>
+                    I am a junior in the College of Business here at Ohio Unviersity. I am studying Management Information Systems, Analytics, and Marketing. I plan on graduating with my bachelors of business adminstration in May of 2021.<br />
+                    <b /> @Html.ActionLink("Course", "Index", "Courses")<b /> <br />
+                    @Html.ActionLink("Registration", "Index", "Registrations")<b /> <br />
+                    @Html.ActionLink("Student", "Index", "Students")<b /> <br />
+
+                </p>
+
+            </div>
+            <div class="well">
+                <h2>Future</h2>
+                <p>I still have one more year of schooling to go at Ohio University before I graduate. This upcoming summer, I will be interning as a Marketing Intern for Whirlpool Co.!</p>
+
+            </div>
+        </div>

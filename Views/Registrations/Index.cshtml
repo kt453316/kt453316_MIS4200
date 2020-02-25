@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-bordered table-striped table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Course.instructor)
@@ -18,28 +18,28 @@
             @Html.DisplayNameFor(model => model.Student.firstName)
         </th>
         <th>
-          
+
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Course.instructor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.firstName)
-        </td>
-        <td>
-         
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.registrationID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.registrationID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.registrationID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.instructor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.firstName)
+            </td>
+            <td>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.registrationID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.registrationID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.registrationID })
+            </td>
+        </tr>
+    }
 
 </table>
