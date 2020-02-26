@@ -11,11 +11,20 @@ namespace kt453316_MIS4200.Models
         [Key]
         [Display (Name = "Course ID")]
         public int courseID { get; set; }
+
         [Display(Name = "Class Time")]
+        [Required]
+        [DataType(DataType.Time)]
         public string classTime { get; set; }
+
         [Display(Name = "Instructor")]
+        [Required]
+        [StringLength(20)]
         public string instructor { get; set; }
+
         [Display(Name = "Course Description")]
+        [Required]
+        [StringLength(40)]
         public string description { get; set; }
 
         public ICollection<Registration> Registration { get; set; }
