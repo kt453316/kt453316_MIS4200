@@ -12,9 +12,11 @@ namespace kt453316_MIS4200.Models
         public int registrationID { get; set; }
 
 
-
+        [Display(Name = "Student ID")]
         public int studentID { get; set; }
         public virtual Student Student { get; set; }
+
+        [Display(Name = "Course ID")]
         public int courseID { get; set; }
         public virtual Course Course { get; set; }
 
