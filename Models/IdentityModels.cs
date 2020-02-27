@@ -29,5 +29,11 @@ namespace kt453316_MIS4200.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<kt453316_MIS4200.Models.Student> Students { get; set; }
+
+        public System.Data.Entity.DbSet<kt453316_MIS4200.Models.Course> Courses { get; set; }
+
+        public System.Data.Entity.DbSet<kt453316_MIS4200.Models.Registration> Registrations { get; set; }
     }
 }

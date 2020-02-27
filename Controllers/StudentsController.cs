@@ -6,14 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using kt453316_MIS4200.DAL;
 using kt453316_MIS4200.Models;
 
 namespace kt453316_MIS4200.Controllers
 {
     public class StudentsController : Controller
     {
-        private MIS4200Context db = new MIS4200Context();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Students
         public ActionResult Index()

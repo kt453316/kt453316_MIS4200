@@ -6,20 +6,19 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using kt453316_MIS4200.DAL;
 using kt453316_MIS4200.Models;
 
 namespace kt453316_MIS4200.Controllers
 {
     public class RegistrationsController : Controller
     {
-        private MIS4200Context db = new MIS4200Context();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Registrations
         public ActionResult Index()
         {
-            var registration = db.Registrations.Include(r => r.Student);
-            return View(registration.ToList());
+            var registrations = db.Registrations.Include(r => r.Course).Include(r => r.Student);
+            return View(registrations.ToList());
         }
 
         // GET: Registrations/Details/5
@@ -40,7 +39,7 @@ namespace kt453316_MIS4200.Controllers
         // GET: Registrations/Create
         public ActionResult Create()
         {
-            ViewBag.courseID = new SelectList(db.Courses, "courseID", "instructor");
+            ViewBag.courseID = new SelectList(db.Courses, "courseID", "classTime");
             ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName");
             return View();
         }
@@ -50,7 +49,7 @@ namespace kt453316_MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "confirmationID,registrationTime,courseID,studentID")] Registration registration)
+        public ActionResult Create([Bind(Include = "registrationID,studentID,courseID")] Registration registration)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +58,7 @@ namespace kt453316_MIS4200.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.courseID = new SelectList(db.Courses, "courseID", "instructor", registration.courseID);
+            ViewBag.courseID = new SelectList(db.Courses, "courseID", "classTime", registration.courseID);
             ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName", registration.studentID);
             return View(registration);
         }
@@ -76,7 +75,7 @@ namespace kt453316_MIS4200.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.courseID = new SelectList(db.Courses, "courseID", "instructor", registration.courseID);
+            ViewBag.courseID = new SelectList(db.Courses, "courseID", "classTime", registration.courseID);
             ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName", registration.studentID);
             return View(registration);
         }
@@ -86,7 +85,7 @@ namespace kt453316_MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "confirmationID,registrationTime,courseID,studentID")] Registration registration)
+        public ActionResult Edit([Bind(Include = "registrationID,studentID,courseID")] Registration registration)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +93,7 @@ namespace kt453316_MIS4200.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.courseID = new SelectList(db.Courses, "courseID", "instructor", registration.courseID);
+            ViewBag.courseID = new SelectList(db.Courses, "courseID", "classTime", registration.courseID);
             ViewBag.studentID = new SelectList(db.Students, "studentID", "firstName", registration.studentID);
             return View(registration);
         }
