@@ -18,16 +18,18 @@
 
             </p>
 
-            <div class="well">
-                <h2>Class Database Work:</h2>
-                <p>
-                    <b /> @Html.ActionLink("Course", "Index", "Courses")<b /> <br />
-                          @Html.ActionLink("Registration", "Index", "Registrations")<b /> <br />
-                          @Html.ActionLink("Student", "Index", "Students")<b /> <br />
-
-                </p>
-
-            </div>
+            <div class="dropdown">
+                <button class ="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                 Database Work
+                    <span class="caret"><</span>
+                    </button>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Course", "Index", "Courses")</li>
+                    <li>@Html.ActionLink("Registration", "Index", "Registrations")</li>
+                    <li> @Html.ActionLink("Student", "Index", "Students")</li>
+</ul>                      
+                     
+</div>
 
             <div class="well">
                 <h2>Past</h2>
@@ -41,10 +43,7 @@
                 <h2>Present</h2>
                 <p>
                     I am a junior in the College of Business here at Ohio Unviersity. I am studying Management Information Systems, Analytics, and Marketing. I plan on graduating with my bachelors of business adminstration in May of 2021.<br />
-                    <b /> @Html.ActionLink("Course", "Index", "Courses")<b /> <br />
-                    @Html.ActionLink("Registration", "Index", "Registrations")<b /> <br />
-                    @Html.ActionLink("Student", "Index", "Students")<b /> <br />
-
+                  
                 </p>
 
             </div>
